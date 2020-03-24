@@ -57,8 +57,10 @@ export class ApiService {
 
   // POST METHODES
 
-  postComment(userID: number, problemID: number, content: string): Observable<any> {
-    return this.http.post<CommentModal>(this.serverURL + 'commentOnProblem', { userID, problemID, content } , this.httpOptions);
+  postComment(username: string, userprename: string, userID: number, problemID: number, content: string): Observable<any> {
+    return this.http.post<CommentModal>(this.serverURL + 'commentOnProblem',
+    { username, userprename, userID, problemID, content } ,
+     this.httpOptions);
   }
 
   postProblem(userID: number, name: string, subject: string, content: string): Observable<any> {

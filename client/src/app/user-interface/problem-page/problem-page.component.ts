@@ -126,8 +126,10 @@ export class ProblemPageComponent extends Responsivepage implements OnInit, Afte
   PostComment(form: NgForm) {
     if (form.valid) {
       const userData = JSON.parse(localStorage.getItem('userData'));
-      const CommentToUpload = new CommentModal(userData.ID, this.id, form.value.content);
-      return this.api.postComment(CommentToUpload.userID, CommentToUpload.problemID, CommentToUpload.content).subscribe(
+      const CommentToUpload = new CommentModal(userData.Name, userData.Prename, userData.ID, this.id, form.value.content);
+      return this.api.postComment(
+        CommentToUpload.username, CommentToUpload.userprenme,
+        CommentToUpload.userID, CommentToUpload.problemID, CommentToUpload.content).subscribe(
         data => {
           window.location.reload();
         }, error => {

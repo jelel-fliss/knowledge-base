@@ -11,11 +11,15 @@ export interface Comment {
 
 export class CommentModal {
 
+  username: string;
+  userprenme: string;
   userID: number;
   problemID: number;
   content: string;
 
-  constructor(userID: number, problemID: number, content: string  ) {
+  constructor(username: string, userprename: string, userID: number, problemID: number, content: string  ) {
+    this.username = username;
+    this.userprenme = userprename;
     this.userID = userID;
     this.problemID = problemID;
     this.content = content;
