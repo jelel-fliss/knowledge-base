@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Responsivepage } from './../../shared/responsivepage';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -11,10 +12,30 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class NavbarComponent extends Responsivepage implements OnInit {
 
-  constructor(private router: Router,private authService: AuthenticationService) {
+  closeResult = '';
+
+  constructor(private router: Router, private authService: AuthenticationService, private modalService: NgbModal) {
     super();
 
    }
+
+   open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 
    NavbarColorTheme(navbar: HTMLElement, color: string){
     navbar.style.backgroundColor = color;
@@ -40,6 +61,7 @@ export class NavbarComponent extends Responsivepage implements OnInit {
     }
 
   }
+
 
    @HostListener('window:resize', ['$event'])onResize(event) {
     this.ResizeNavbar();

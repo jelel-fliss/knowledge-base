@@ -18,6 +18,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AuthGuard } from '../services/auth-guard.service';
 import { JWTInterceptorService } from '../services/jwt-interceptor.service';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { JWTInterceptorService } from '../services/jwt-interceptor.service';
     BrowserModule,
     RouterModule.forChild(UserInterfaceRoutes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptorService, multi: true}],
   bootstrap: [UserInterfaceComponent]

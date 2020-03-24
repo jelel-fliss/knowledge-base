@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Renderer2, AfterViewInit, AfterViewChecked} from '@angular/core';
+import { Component, OnInit, HostListener, Renderer2} from '@angular/core';
 import { ApiService } from './../../services/api.service';
 import { Router } from '@angular/router';
 import { Problem } from '../../entities/problem';
