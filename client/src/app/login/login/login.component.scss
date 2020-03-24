@@ -1,0 +1,90 @@
+#login {
+  background-image: url("../../../assets/login_assets/bg.jpg");
+  min-height: 120vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
+
+.error-msg{
+  margin-top: 10px;
+  font-family: 'Bebas Neue';
+}
+
+.logo{
+  text-align: center;
+  padding: 50px;
+}
+
+.signin {
+  position: relative;
+  top: auto;
+  width: 370px;
+  margin: 0px auto 0;
+  background-color: rgba(56, 49, 49, 0.13);
+  padding: 40px;
+  padding-top: 80px;
+  border: 2px ridge rgba(238, 238, 238, 0.13);
+  border-radius: 5px;
+  -moz-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+  -webkit-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+  box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+  border-bottom: none;
+}
+
+label{
+  color: white;
+  margin-left: 15px;
+}
+
+input.email {
+  width: 83%;
+  padding: 10px 10px 10px 45px;
+  background: rgba(23, 24, 25, 0.29) url("../../../assets/login_assets/user.png") no-repeat 10px
+    10px;
+  border: 1px solid #7b7474;
+  border-radius: 5px;
+  font-family: 'Bebas Neue';
+  font-size: 18px;
+  color: #fff;
+  outline: none;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+input.pass {
+  width: 83%;
+  padding: 10px 10px 10px 45px;
+  background: rgba(23, 24, 25, 0.29) url("../../../assets/login_assets/pass.png") no-repeat 11px
+    10px;
+  border: 1px solid #7b7474;
+  border-radius: 5px;
+  font-family: 'Bebas Neue';
+  font-size: 18px;
+  color: #fff;
+  outline: none;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+input[type="submit"] {
+  width: 80%;
+  padding: 10px 0;
+  margin-top: 20px;
+  outline: none;
+  border: 1px solid #7B7474;
+  font-family: 'Bebas Neue';
+  font-size: 25px;
+  color: #FFFFFF;
+  background-color: rgba(23, 24, 25, 0.24);
+  border-radius: 5px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+background-color: rgba(16, 89, 134, 0.52);
+-webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}

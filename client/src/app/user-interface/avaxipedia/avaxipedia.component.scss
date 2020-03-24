@@ -1,0 +1,149 @@
+
+
+.container-pages-bottom{
+  margin-top: 10px;
+}
+
+.pagination{
+  display: flex;
+}
+
+.comment-poster{
+  vertical-align: middle;
+  text-align: center;
+  margin: 2%;
+
+}
+
+.page-link{
+  border-color: rgba(164, 193, 236);
+  color: rgb(20, 159, 194);
+}
+
+.page-item{
+  margin-right: auto;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.page-link.active{
+  z-index: 1;
+  color: white;
+  background-color: rgb(20, 159, 194);
+}
+
+.page-link:hover{
+  background-color: rgb(139, 199, 223);
+  color: white;
+}
+
+.avatar-issue{
+  border-radius: 50%;
+  position: relative;
+  right: 3px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.avatar-comment{
+  border-radius: 50%;
+  max-width: 70px;
+  margin-top: auto;
+  margin-bottom: auto;
+
+}
+
+
+.issue-box{
+  height: 100px !important;
+  background-color: rgba(255, 255, 255, 0.363);
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(164, 193, 236, 0.671);
+  // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-height: 40%;
+  min-height: 20%;
+}
+
+.issue-comment{
+  width: 100%;
+  height: 5% !important;
+  padding-left: 5%;
+  padding-right: 3%;
+  background-color: rgba(255, 255, 255, 0.363);
+  border-radius: 70px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-height: 10%;
+  min-height: 20%;
+  margin-top: 10px;
+}
+
+.problem-state{
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.problem-solved{
+  color: rgb(62, 211, 142)
+}
+
+.problem-not-solved{
+  color: rgb(226, 226, 226);
+}
+
+.issue-title, .comment-poster-name{
+  color: rgb(70, 132, 168);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.problem-id, .issue-subject{
+  color: rgb(54, 54, 54);
+  font-size: 12px;
+}
+
+
+
+.post-time{
+  color: rgb(54, 54, 54);
+  position: relative;
+  bottom: 2xp;
+  font-size: 12px;
+}
+
+#problem-search{
+  margin: 8%;
+}
+
+.comment-owner{
+  font-weight: bold;
+  color: rgb(70, 132, 168);
+}
+
+.comment-id{
+  margin-left: 5%;
+}
+
+.comment-date{
+  font-size: 60%;
+  color: gray;
+}
+
+.comment-content{
+  font-size: 65%;
+}
+
+.comment-btn{
+  border-radius: 20px;
+  margin-right: 20px;
+  font-size-adjust: inherit;
+}
+
+
+
+
+
+
+

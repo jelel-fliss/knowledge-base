@@ -1,0 +1,59 @@
+<div class="row header">
+  <div class="title">
+    <div class="sub-title">Avaxia Knowledge base</div>
+    <h3>Avaxipedia</h3>
+  </div>
+</div>
+<div class="row">
+
+  <div style="display:inline">
+    <input id="problem-search" #code (keyup)="GetProblemByID(code.value)" class="form-control" type="text" placeholder="Problem Code" aria-label="Search">
+  </div>
+
+
+  <div style="display:inline;">
+    <input id="problem-search" #space (keyup)="GetProblemByName(space.value)" class="form-control" type="text" placeholder="Problem Name" aria-label="Search">
+  </div>
+</div>
+
+<div class="row container-pages-top" >
+  <ul class="pagination col-xs-6 col-md-5 mx-auto">
+    <li class="page-item" ><a class="page-link" routerLink='Avaxipedia'>Previous</a></li>
+    <li class="page-item row"><a class="page-link" (click)="GetProblemsPaginated(i)"  *ngFor='let elt of arraycount; index as i'>{{ i+1 }}</a></li>
+    <li class="page-item" ><a class="page-link" routerLink="#">Next</a></li>
+  </ul>
+</div>
+
+<div class="row">
+  <div class="AvaxiaPedia col-md-8 col-xs-10 mx-auto">
+    <div class="issue" *ngFor="let problem of problems">
+      <div class="card issue-box" >
+        <div class="row no-gutters">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-2">
+                <img [src]="'../../assets/avatars/' + problem.Poster_ID +'.jpg'" class="card-img avatar-issue" (click)="navigateto('dashboard/User/'+problem.Poster_ID)" alt="...">
+            </div>
+            <div class="col-xs-7 card-body">
+                <div class="card-title issue-title" (click)="navigateto('/dashboard/Problem/'+problem.ID)">{{ problem.Name }}</div>
+                <div class="card-text problem-id"><small class="label">Problem Code : #{{ problem.ID }}</small></div>
+                <p class="card-text issue-subject"><small class="label">Subject : {{ problem.Subject }}</small></p>
+                <p class="card-text post-time"><small class="label"> Posted {{ problem.Age }} Ago </small></p>
+            </div>
+            <div class="col-xs">
+                <i class="far fa-check-circle fa-3x problem-state " [ngClass]=' problem.State === 1 ? "problem-solved" : "problem-not-solved"'></i>
+            </div>
+
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>
+<!--<div class="row container-pages-bottom" >
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" routerLink='Avaxipedia'>Previous</a></li>
+    <li class="page-item row" (click)="GetProblemsPaginated(i)" *ngFor='let elt of arraycount; index as i'><a class="page-link">{{ i+1 }}</a></li>
+    <li class="page-item"><a class="page-link" routerLink="#">Next</a></li>
+  </ul>
+</div>-->
+

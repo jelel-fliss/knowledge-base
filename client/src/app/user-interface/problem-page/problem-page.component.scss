@@ -1,0 +1,115 @@
+.avatar-poster{
+  border-radius: 50%;
+  width: 100px;
+  margin: 10px;
+  margin-top: 15px;
+  margin-left: 50px;
+}
+
+.view-container{
+  margin-bottom: 10px;
+}
+
+.body{
+  margin-left: 20px;
+  box-sizing: border-box;
+  width: 500px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 100%;
+}
+
+.content{
+  width: auto;
+  word-wrap: break-word;
+  white-space: initial;
+  margin-bottom: 20px;
+  color: rgb(68, 68, 68);
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+hr{
+  margin-top: 0;
+}
+
+.solution-box{
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(1, 221, 119) !important;
+}
+
+.follow-btn{
+  border-radius: 25px;
+  width: 100px;
+}
+
+.comment-id{
+  display: none;
+}
+
+.comment-date, .post-time{
+  color: gray;
+  font-size: 13px;
+}
+
+.problem-box, .comment-box{
+  // background-color: rgba(255, 255, 255, 0.527);
+  width: 80%;
+  min-height: 140px;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: rgba(185, 223, 255, 0.596);
+  border-width: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.side-box{
+  text-align: center;
+  width: auto;
+}
+
+.solution{
+  color: rgb(62, 211, 142);
+  margin: 10px;
+}
+
+.views{
+  color: rgb(131, 179, 207);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.problem-name{
+  color: rgb(70, 132, 168);
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.fa-sort-amount-up{
+  color: rgb(112, 183, 204);
+  margin-top: 10px;
+}
+
+.button{
+  text-align: center;
+}
+
+#submit-comment{
+  margin: 10px;
+  float: right;
+}
+
+.comment-header{
+  width: 100%;
+  position: relative;
+}
+
+.solution-btn-container{
+  position: relative;
+  text-align: right;
+  float: right;
+
+}
+

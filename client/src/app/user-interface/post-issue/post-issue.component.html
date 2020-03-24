@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="title">
+    <div class="sub-title">Your Issue is not found ? Please post it here</div>
+    <h3>Post New Issue</h3>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <form class="col-lg-12" id="issue-post-form" #problemForm="ngForm" (ngSubmit)='PostProblem(problemForm)'>
+      <div class="form-group col-lg-7">
+        <label for="Issue-name" class="sub-title"> Give a bref name to your Issue </label>
+        <input type="text" class="form-control form-control-lg" id="Issue-name" placeholder="Issue Name" ngModel name='Name' required Name>
+        <div class="valid-feedback" [ngClass]=' (problemForm.value.Name !== "") && (problemForm.value.Name.length <= 25) ? "d-block" : ""'>
+          Looks good!
+        </div>
+        <div class="invalid-feedback" [ngClass]=' problemForm.value.Name.length >= 25 ? "d-block" : ""'>Please choose a shorter name</div>
+      </div>
+      <div class="form-group col-lg-7">
+        <label for="Issue-name" class="sub-title"> Choose a subject for your issue </label>
+        <select class="form-control" ngModel name='Subject' required Subject>
+          <option>Android</option>
+          <option>Java</option>
+          <option>Kafka</option>
+          <option>Spark</option>
+          <option>ReactJS</option>
+          <option>Angular</option>
+          <option>Vue</option>
+          <option>SQL</option>1
+        </select>
+      </div>
+      <div class="form-group col-lg-8">
+        <label for="Description" class="sub-title"> What is your problem like ? </label>
+        <textarea class="form-control" id="problem" rows="5" ngModel name='content' required content></textarea>
+        <button class="btn btn-info" id="submit-issue">Post New Issue </button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<br><br>

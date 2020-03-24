@@ -1,0 +1,75 @@
+<div class="row header">
+  <div class="title">
+    <div class="sub-title">Avaxia Knowledge base</div>
+    <h3>Avaxipedia</h3>
+  </div>
+</div>
+
+<button class="btn btn-sm follow-btn" [ngClass]=" Following ? 'btn-outline-secondary':'btn-outline-primary'"
+(click)="FollowUnfollow()" (mouseover)="IsItFollowing()">{{ this.Following ? 'Unfollow' : 'Follow '}}</button>
+<div *ngFor="let prb of problem">
+  <div class="problem-box box row">
+
+    <div class="col-xs-2 side-box">
+
+      <img [src]="'../../assets/avatars/' + prb.Poster_ID +'.jpg'" class="avatar-poster" alt="...">
+      <br>
+      <div class="view-container">
+        <i class="fas fa-sort-amount-up fa-2x"></i> <i class="views"> {{ prb.Views }} </i>
+      </div>
+
+
+    </div>
+    <div class="col-xs-10 body">
+      <div class="problem-name"> {{ prb.Name }}</div>
+
+      <div class="post-time"> {{ prb.PostTime | date }} {{ prb.PostTime | date:'shortTime' }} </div>
+      <hr>
+      <div class="content">
+        {{ prb.Description }}
+      </div>
+    </div>
+
+  </div>
+</div>
+<hr>
+<div *ngFor="let comment of comments">
+  <div class="comment-box box row" [ngClass]="comment.is_Solution ? 'solution-box': ''">
+    <div class="col-xs-2 side-box">
+
+      <img [src]="'../../assets/avatars/' + comment.Poster_ID +'.jpg'" class="avatar-poster" alt="...">
+      <br>
+
+
+
+    </div>
+    <div class="col-xs-8 body">
+      <div class="row comment-header">
+
+        <div class="comment-date" style="float: left"> {{ comment.PostTime | date }} {{ comment.PostTime | date:'shortTime' }} </div>
+
+      </div>
+
+      <hr>
+      <div class="content">
+        {{ comment.Content }}
+      </div>
+      <div class="solution-btn-container" *ngIf="!comment.is_Solution && PosterID === this.UserID()">
+          <button class="btn btn-success solution-btn btn-sm" (click)="MarkSolution(this.id, comment.ID)"> Mark as Solution </button>
+      </div>
+
+    </div>
+    <div class="col-xs-2">
+      <i class="far fa-check-circle fa-3x " *ngIf='comment.is_Solution === 1'
+        [ngClass]=" (comment.is_Solution === 1) ? 'solution' : ''"></i>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="new-comment box">
+  <form #commentForm="ngForm" (ngSubmit)="PostComment(commentForm)">
+    <textarea class="form-control" id="comment-input" rows="5" ngModel name='content' required content></textarea>
+    <button class="btn btn-info" id="submit-comment" type="submit">Submit Comment</button>
+
+  </form>
+</div>

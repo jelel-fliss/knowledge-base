@@ -1,0 +1,26 @@
+<div id="login">
+  <div class="logo">
+      <img src="./../../../assets/logos/avaxia.png">
+  </div>
+  <div class="signin shadow-lg">
+    <form #authform="ngForm" (ngSubmit)='onSubmit(authform)'>
+      <input type="text" placeholder="email" class="email form-control" ngModel name='email' required email />
+      <input type="password" placeholder="Password" class="pass form-control" ngModel name='password' required password />
+      <label>
+        <input type="checkbox" value="Remember-Me" /> Remember Me?
+      </label>
+      <div style="text-align: center">
+          <input type="submit" value="LOGIN" id="login-btn" [disabled]='!authform.valid' />
+          <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+        </div>
+
+      <div class="alert alert-danger error-msg" *ngIf="error">
+        {{ this.error }}
+      </div>
+    </form>
+  </div>
+  <div class="footer">
+
+  </div>
+</div>
+

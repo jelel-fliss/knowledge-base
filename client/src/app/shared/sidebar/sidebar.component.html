@@ -1,0 +1,51 @@
+
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg">
+
+    </nav>
+    <div class="avatar-container">
+      <img class="avatar" [src]="'../../../assets/avatars/'+ userPictureID +'.jpg'" href="./../../assets/">
+      <a class="btn" id="hide-sidebar-btn" (click)='hideSidebar();'>
+        <i class="fas fa-chevron-circle-left fa-2x"></i>
+      </a>
+    </div>
+    <div id="sidebar-buttons">
+      <ul class="nav flex-column">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="Home" (click)='hideSidebar();'>
+            <i class="fas fa-home"></i>
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="Avaxipedia" (click)='hideSidebar();'>
+            <i class="fas fa-search"></i>
+            Avaxipedia
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="PostIssue" (click)='hideSidebar();'>
+            <i class="fas fa-question-circle"></i>
+            Post New Issue
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="Settings" (click)='hideSidebar();'>
+            <i class="fas fa-users-cog"></i>
+            <a class="nav-lin-name">Settings</a>
+          </a>
+        </li>
+
+
+      </ul>
+
+    </div>
+    <div class="sidebar-footer">
+
+    </div>
+
+  </nav>
+
+

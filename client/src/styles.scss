@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+.page{
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 300px;
+  padding-top: 60px;
+  background-image: url("../src/assets/whitebg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed !important;
+  min-height: 100vh;
+}
+
+.mini-container{
+  background-color: rgba(192, 192, 192, 0.322);
+  margin: 15px;
+  padding: 15px;
+  border-radius: 10px;
+
+}
+
+.title{
+  margin: 20px;
+  color: rgb(70, 132, 168);
+
+}
+
+label{
+  color: rgb(54, 54, 54);
+  font-size: 12px;
+}
+
+.lp-pom-text ul, li {
+  color: white
+}
+
+.card-title, .card-text{
+  margin-bottom: 0px;
+}
+
+.card-body{
+  padding-top: 5px;
+  padding-bottom: 2px;
+  margin-left: 20px;
+}
+
+.sub-title{
+  color: gray;
+  font-size: 10px;
+}
+

@@ -1,0 +1,61 @@
+.navbar{
+  top: 0px;
+  left: 250px;
+  right: 0px;
+  position: fixed;
+  background-color: rgb(240, 240, 240);
+  z-index: 2;
+  height: 60px;
+
+}
+
+ul {
+  display: inline;
+  position: absolute;
+  right: 10px;
+}
+
+li {
+  float: left;
+  display: inline;
+}
+
+.notif-btn{
+  cursor: pointer;
+  color: rgb(20, 159, 194);
+  position: relative;
+  margin-right: 50px;
+}
+
+.logout-icon{
+  color: rgb(20, 159, 194);
+  cursor: pointer;
+}
+
+.logout-icon:hover{
+  color: rgb(22, 24, 26);
+}
+
+
+#toggle-btn{
+  position: fixed;
+  z-index: 3;
+  height: 40px;
+  width: 40px;
+  font-size: auto;
+  margin-bottom: 5px;
+  left: 15px;
+
+}
+
+.navbar-brand, .navbar-toggler{
+  max-height: 100%;
+  position: relative;
+  bottom: 8px;
+  margin-left: 15px;
+
+}
+
+img{
+  max-height: 50px !important;
+}
