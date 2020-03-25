@@ -1,0 +1,28 @@
+.avatar-img{
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  margin-left: 20px;
+}
+
+.avatar-item{
+  text-align: center;
+}
+
+.notif-text{
+  text-align: justify;
+  padding: 2px;
+  margin-right: 20px;
+}
+
+.modal-body{
+  overflow: scroll;
+}
+
+#notif{
+  height: 200px;
+}
+
+.notif-item{
+  cursor: pointer;
+}

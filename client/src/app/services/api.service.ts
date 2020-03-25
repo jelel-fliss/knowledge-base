@@ -83,5 +83,9 @@ export class ApiService {
     return this.http.get<any[]>(this.serverURL + 'checkifFollowed/' + userID + '/' + problemID, this.httpOptions);
   }
 
+  getNotifications(userID: number): Observable<any[]> {
+    return this.http.get<any[]>(this.serverURL + 'notifications/' + userID, this.httpOptions);
+  }
+
 
 }

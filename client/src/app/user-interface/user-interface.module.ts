@@ -19,6 +19,7 @@ import { AuthGuard } from '../services/auth-guard.service';
 import { JWTInterceptorService } from '../services/jwt-interceptor.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AvaxipediaComponent,
     ProblemPageComponent,
     UserProfileComponent,
+    NotificationsComponent,
   ],
   imports: [
     BrowserModule,

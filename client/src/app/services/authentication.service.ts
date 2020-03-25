@@ -28,7 +28,6 @@ export class AuthenticationService {
   private handleAuthentication(userData: User) {
     const expirationTime = new Date(new Date().getTime() + 1000 * 60 * 20); // 20 minutes is the token's life
     const tokenLife = ((expirationTime.getTime()) - (new Date().getTime())) ;
-    console.log('Expires in ..' + tokenLife / 1000 / 60 + ' minutes' );
 
     const user = new User(
       userData.ID,
@@ -44,7 +43,6 @@ export class AuthenticationService {
     // After emitting user
     this.autoLogOut(tokenLife);
     localStorage.setItem('userData', JSON.stringify(user));
-    console.log(user);
   }
 
   autoLogin() {
@@ -80,8 +78,8 @@ export class AuthenticationService {
       this.autoLogOut(expirationDuration);
     }
 
-    console.log('Autologin Worked');
-    console.log(userData);
+    // console.log('Autologin Worked');
+    // console.log(userData);
 
   }
 

@@ -1,8 +1,8 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { Responsivepage } from './../../shared/responsivepage';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -13,29 +13,15 @@ import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class NavbarComponent extends Responsivepage implements OnInit {
 
   closeResult = '';
+  SignalSubject: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private router: Router, private authService: AuthenticationService, private modalService: NgbModal) {
+  constructor(private router: Router, private authService: AuthenticationService) {
     super();
-
    }
 
-   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
+   emitEvent_to_Notifications() {
+     this.SignalSubject.next(true);
+   }
 
    NavbarColorTheme(navbar: HTMLElement, color: string){
     navbar.style.backgroundColor = color;
