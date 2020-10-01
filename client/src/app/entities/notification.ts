@@ -4,4 +4,5 @@ export interface Notification {
   User_To_Notify_ID: number;
   Trigger_User_ID: number;
   SEEN: number;
+  Post_Time: Date;
 }

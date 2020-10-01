@@ -20,6 +20,8 @@ import { JWTInterceptorService } from '../services/jwt-interceptor.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { AppModule } from '../app.module';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
     RouterModule.forChild(UserInterfaceRoutes),
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [AuthGuard, { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptorService, multi: true}],
   bootstrap: [UserInterfaceComponent]

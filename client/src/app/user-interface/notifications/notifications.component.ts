@@ -48,7 +48,12 @@ export class NotificationsComponent implements OnInit {
     });
   }
 
+  emptyNotifications() {
+    this.notifications = [];
+  }
+
   private getDismissReason(reason: any): string {
+    this.emptyNotifications();
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {

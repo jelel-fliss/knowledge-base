@@ -147,39 +147,63 @@ app.post("/commentOnProblem", (req, response) => {
   commentID = uniqid();
   //console.log("commentID :" + commentID);
   let addingCommentSQL =
-    'INSERT INTO `Comments` VALUES("' + commentID +'","' + comment.content +
-    '",NOW(),' + comment.userID + ',' + comment.problemID +',0);';
+    'INSERT INTO `Comments` VALUES("' +
+    commentID +
+    '","' +
+    comment.content +
+    '",NOW(),' +
+    comment.userID +
+    "," +
+    comment.problemID +
+    ",0);";
   //console.log(addingCommentSQL);
   connection.query(addingCommentSQL, (err, res1) => {
     if (err) throw err;
   });
 
-  let AddEvent = 'INSERT INTO `Events` VALUES("' + uniqid() + '","comment","' +
-      description + '","' + commentID +'");';
+  eventID = uniqid();
+
+  let AddEvent =
+    'INSERT INTO `Events` VALUES("' +
+    eventID +
+    '","comment","' +
+    description +
+    '","' +
+    commentID +
+    '");';
   //console.log(AddEvent);
   connection.query(AddEvent, (err, res) => {
     if (err) throw err;
   });
 
-  let Users_to_notify_sql = 'SELECT User_ID FROM Follows WHERE Problem_ID = ' + comment.problemID +' ;';
+  let Users_to_notify_sql =
+    "SELECT User_ID FROM Follows WHERE Problem_ID = " +
+    comment.problemID +
+    " ;";
   //console.log(Users_to_notify_sql);
-  connection.query(Users_to_notify_sql, (err, users)=>{
+  connection.query(Users_to_notify_sql, (err, users) => {
     if (err) throw err;
     let i = 0;
-    for ( i ; i < users.length ; i++){
-      if (users[i].User_ID!=comment.userID){
-        let NotifySQL = 'INSERT INTO Notifications VALUES("'+uniqid()+'", '+ users[i].User_ID +' ,'+ comment.userID +',0);';
+    for (i; i < users.length; i++) {
+      if (users[i].User_ID != comment.userID) {
+        let NotifySQL =
+          'INSERT INTO Notifications VALUES("' +
+          uniqid() +
+          '", ' +
+          users[i].User_ID +
+          " ," +
+          comment.userID +
+          ',0,"' +
+          eventID +
+          '", NOW());';
         //console.log(NotifySQL);
-        connection.query(NotifySQL, (err, res)=>{
+        connection.query(NotifySQL, (err, res) => {
           if (err) throw err;
         });
       }
     }
     response.send(users);
-  })
-
-
-
+  });
 });
 
 app.post("/postProblem", (req, response) => {
@@ -270,7 +294,6 @@ app.get("/checkifFollowed/:userID/:problemID", (req, response) => {
   });
 });
 
-
 app.put("/marksolution/:problemID/:commentID", (req, response) => {
   prbID = req.params.problemID;
   cmtID = req.params.commentID;
@@ -278,7 +301,7 @@ app.put("/marksolution/:problemID/:commentID", (req, response) => {
   var userprename;
 
   let MarkComment_sql =
-    " UPDATE Comments SET is_Solution = 1 WHERE ID = " + cmtID + ";";
+    ' UPDATE Comments SET is_Solution = 1 WHERE ID = "' + cmtID + '";';
   connection.query(MarkComment_sql, (err, res1) => {
     if (err) throw err;
   });
@@ -289,14 +312,15 @@ app.put("/marksolution/:problemID/:commentID", (req, response) => {
   });
 
   let SolutionOwner =
-    "SELECT Name, Prename From Users, Comments WHERE Users.ID = Comments.Poster_ID AND Comments.ID = " +
+    'SELECT Users.ID ,Users.Name, Users.Prename From Users, Comments WHERE Users.ID = Comments.Poster_ID AND Comments.ID = "' +
     cmtID +
-    ";";
+    '";';
 
   connection.query(SolutionOwner, (err, rows) => {
     if (err) throw err;
     username = rows[0].Name;
     userprename = rows[0].Prename;
+    userID = rows[0].ID;
 
     description =
       userprename +
@@ -305,18 +329,60 @@ app.put("/marksolution/:problemID/:commentID", (req, response) => {
       " Found A Solution to A Problem You are following !";
     console.log(description);
 
+    eventID = uniqid();
+
     let AddEvent =
       'INSERT INTO `Events` VALUES("' +
-      uniqid() +
+      eventID +
       '","solution","' +
       description +
-      '",' +
+      '","' +
       cmtID +
-      ");";
+      '");';
+    console.log("QUERY : "+AddEvent);
     connection.query(AddEvent, (err, res2) => {
       if (err) throw err;
-      response.send(res2);
-      response.end();
+    });
+
+
+
+    let Users_to_notify_sql =
+      "SELECT User_ID FROM Follows WHERE Problem_ID = " +
+      prbID +
+      " ;";
+    console.log(Users_to_notify_sql);
+    connection.query(Users_to_notify_sql, (err, users) => {
+      if (err) throw err;
+      let i = 0;
+      for (i; i < users.length; i++) {
+        if (users[i].User_ID != userID) {
+          let NotifySQL =
+            'INSERT INTO Notifications VALUES("' + uniqid() + '", ' +users[i].User_ID + ',' +userID +',0,"' +
+            eventID +
+            '",NOW());';
+          console.log(NotifySQL);
+          connection.query(NotifySQL, (err, res) => {
+            if (err) throw err;
+          });
+        }
+      }
+      response.send(users);
     });
   });
+});
+
+app.get("/notifications/:userID", (request, response) => {
+  userID = request.params.userID;
+
+  let getNotifs =
+  'SELECT N.ID ,E.Description, N.User_To_Notify_ID, N.Trigger_User_ID , N.SEEN, N.Post_Time'+
+  ' FROM `Notifications` N, `Events` E'+
+  ' WHERE E.ID = N.Event_ID AND N.User_To_Notify_ID = ' + userID + ' ORDER BY N.Post_Time DESC ;';
+
+  connection.query(getNotifs, (err,res)=>{
+    if (err) throw err;
+    response.send(res);
+    response.end();
+  })
+
 });
