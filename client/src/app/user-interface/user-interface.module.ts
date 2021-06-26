@@ -11,7 +11,7 @@ import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { HomepageComponent } from '../user-interface/homepage/homepage.component';
 import { SettingspageComponent } from '../user-interface/settingspage/settingspage.component';
 import { PostIssueComponent } from '../user-interface/post-issue/post-issue.component';
-import { AvaxipediaComponent } from '../user-interface/avaxipedia/avaxipedia.component';
+
 import { RouterModule } from '@angular/router';
 import { ProblemPageComponent } from './problem-page/problem-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -21,6 +21,7 @@ import { JWTInterceptorService } from '../services/jwt-interceptor.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { AppModule } from '../app.module';
+import { CompanypediaComponent } from './companypedia/companypedia.component';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { AppModule } from '../app.module';
     HomepageComponent,
     SettingspageComponent,
     PostIssueComponent,
-    AvaxipediaComponent,
+    CompanypediaComponent,
     ProblemPageComponent,
     UserProfileComponent,
     NotificationsComponent,

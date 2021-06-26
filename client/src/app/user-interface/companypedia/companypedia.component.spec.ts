@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AvaxipediaComponent } from './avaxipedia.component';
+import { CompanypediaComponent } from './companypedia.component';
 
-describe('AvaxipediaComponent', () => {
-  let component: AvaxipediaComponent;
-  let fixture: ComponentFixture<AvaxipediaComponent>;
+describe('CompanypediaComponent', () => {
+  let component: CompanypediaComponent;
+  let fixture: ComponentFixture<CompanypediaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AvaxipediaComponent ]
+      declarations: [ CompanypediaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AvaxipediaComponent);
+    fixture = TestBed.createComponent(CompanypediaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

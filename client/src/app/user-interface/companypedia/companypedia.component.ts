@@ -7,10 +7,10 @@ import { Responsivepage } from '../../shared/responsivepage';
 
 @Component({
   selector: 'app-avaxipedia',
-  templateUrl: './avaxipedia.component.html',
-  styleUrls: ['./avaxipedia.component.scss']
+  templateUrl: './companypedia.component.html',
+  styleUrls: ['./companypedia.component.scss']
 })
-export class AvaxipediaComponent extends Responsivepage implements OnInit {
+export class CompanypediaComponent extends Responsivepage implements OnInit {
 
   url = 'http://localhost:8000';
   problems: Problem[]; // Problems that should appear for the user after typing their names or codes
